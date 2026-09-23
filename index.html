@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Vulpalazzo</title>
+<meta name="description" content="The slot machines are characters. Play slots, blackjack and craps in a casino that remembers how you play, and climb a ten-tier loyalty card whose perks are real and whose meaning is never printed on it. Anthro cast, adults only.">
+<meta name="theme-color" content="#120610">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vulpalazzo">
+<meta property="og:title" content="Vulpalazzo">
+<meta property="og:description" content="The slot machines are characters. Play slots, blackjack and craps in a casino that remembers how you play, and climb a ten-tier loyalty card whose perks are real and whose meaning is never printed on it. Anthro cast, adults only.">
+<meta property="og:url" content="https://vulpalazzo.com/">
+<!-- og:image goes here once the Marquee's screenshots land (1200x630). -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@vulpalazzo">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<!-- Google Fonts sets no cookies. Self-host these (both are SIL OFL) if that ever matters. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600&display=swap">
+<style>
+/* The game's own palette (scripts/ui/Palette.gd), and its lighting rule from
+   docs/ART.md: two lights and nothing else -- gold is the key, gem-ice the fill. */
+:root{
+  color-scheme:dark;
+  --void:#120610;      /* the darkest the game goes */
+  --well:#170c22;
+  --bar:#1e1030;       /* velvet */
+  --plate:#241436;
+  --plum:#452a63;      /* where light falls */
+  --gold:#f0d147;      /* the key light -- the only warm */
+  --gold-deep:#b8962a;
+  --rose:#c74a72;      /* fox-rose accent, sparingly, never for text */
+  --ice:#73ebff;       /* the fill -- the only cool */
+  --ink:#f2ecff;
+  --ink-dim:#b0a4bd;
+  --hair:rgba(240,209,71,.38);   /* plate_edge, the gold hairline */
+  --display:"Cinzel",Georgia,"Times New Roman",serif;
+  --body:"Barlow","Segoe UI",system-ui,sans-serif;
+  --label:"Barlow Condensed","Arial Narrow","Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{background:var(--void)}
+body{margin:0;background:var(--void);color:var(--ink-dim);
+  font:18px/1.65 var(--body);-webkit-font-smoothing:antialiased;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:var(--gold);text-underline-offset:4px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible,.chip:focus-visible{outline:2px solid var(--ice);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-9999px;top:0}
+.skip:focus{left:16px;top:16px;background:var(--gold);color:var(--void);padding:8px 14px;z-index:10}
+strong,b{color:var(--ink);font-weight:600}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:24px}
+@media (max-width:520px){.wrap{padding-inline:18px}}
+.label{font-family:var(--label);font-weight:600;font-size:.84rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold)}
+
+/* ---------- hero: the room, lit by one sconce ---------- */
+header.hero{position:relative;overflow:hidden;
+  background:
+    radial-gradient(900px 520px at 12% -8%, rgba(240,209,71,.20), transparent 62%),
+    radial-gradient(700px 420px at 100% 115%, rgba(115,235,255,.07), transparent 60%),
+    linear-gradient(180deg,var(--bar) 0%, var(--well) 70%, var(--void) 100%);
+  border-bottom:1px solid var(--hair)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr);
+  gap:56px;align-items:center;padding-block:88px 84px}
+@media (max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:40px;padding-block:56px}}
+.mark{width:58px;height:auto;display:block;margin-bottom:26px;
+  filter:drop-shadow(0 0 18px rgba(240,209,71,.35))}
+h1{font-family:var(--display);font-weight:700;color:var(--ink);margin:12px 0 0;
+  font-size:clamp(2.6rem,7.2vw,5rem);line-height:1;letter-spacing:.06em}
+.lede{margin:22px 0 0;max-width:36ch;font-size:clamp(1.12rem,2.2vw,1.32rem);
+  line-height:1.55;color:var(--ink)}
+.row{display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center;margin-top:32px}
+.soon{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  font-size:.92rem;color:var(--void);background:var(--gold);padding:10px 18px;border-radius:2px}
+.chip{font-family:var(--label);font-weight:500;letter-spacing:.08em;font-size:.98rem;
+  color:var(--ink);text-decoration:none;padding:9px 16px;border:1px solid var(--hair);
+  border-radius:2px;background:rgba(36,20,54,.55)}
+.chip:hover{border-color:var(--gold);color:var(--gold)}
+
+/* the plate: the game's own panel -- plum light falling on velvet, gold hairline */
+.plate{background:linear-gradient(180deg,var(--plum) 0%,var(--plate) 38%,var(--bar) 100%);
+  border:1px solid var(--hair);border-radius:4px;padding:30px 30px 26px;position:relative;
+  box-shadow:0 20px 50px rgba(0,0,0,.45), inset 0 1px 0 rgba(240,209,71,.25)}
+.plate .figure{font-family:var(--display);font-weight:700;color:var(--gold);
+  font-size:clamp(3.2rem,8vw,4.6rem);line-height:1;letter-spacing:.01em;margin:14px 0 6px;
+  font-variant-numeric:lining-nums tabular-nums;text-shadow:0 0 24px rgba(240,209,71,.25)}
+.plate .what{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink);font-size:.98rem}
+.plate p{margin:14px 0 0;font-size:.98rem;line-height:1.55}
+.plate .verdict{margin-top:16px;padding-top:14px;border-top:1px solid var(--hair);
+  font-family:var(--display);color:var(--ink);font-size:1.12rem;letter-spacing:.02em}
+
+/* ---------- the body ---------- */
+main{padding-block:24px 40px}
+section{padding-block:56px;border-bottom:1px solid rgba(240,209,71,.12)}
+section:last-of-type{border-bottom:0}
+.two{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:48px;align-items:start}
+@media (max-width:820px){.two{grid-template-columns:1fr;gap:14px}}
+h2{font-family:var(--display);font-weight:600;color:var(--ink);margin:10px 0 0;
+  font-size:clamp(1.6rem,3.4vw,2.2rem);line-height:1.15;letter-spacing:.02em;text-wrap:balance}
+.copy p{margin:0 0 16px;max-width:62ch}
+.copy p:last-child{margin-bottom:0}
+
+/* the one first-person voice on the page */
+.note{background:var(--well);border:1px solid var(--hair);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;padding:26px 28px}
+.note p{color:var(--ink);font-size:1.08rem}
+.note .sign{font-family:var(--label);letter-spacing:.14em;text-transform:uppercase;
+  font-size:.84rem;color:var(--ink-dim);margin-top:18px}
+
+ul.play{list-style:none;margin:0;padding:0;display:grid;gap:12px;max-width:62ch}
+ul.play li{padding-left:28px;position:relative}
+ul.play li::before{content:"";position:absolute;left:4px;top:.72em;width:9px;height:9px;
+  background:var(--gold);transform:rotate(45deg)}
+ul.play .later{color:var(--ink-dim)}
+
+/* screenshots: hidden until real ones exist (see README) */
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:28px}
+.shots figure{margin:0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;background:var(--well)}
+.shots img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+
+.adult{display:flex;gap:18px;align-items:flex-start;max-width:70ch}
+.badge{flex:none;font-family:var(--label);font-weight:600;font-size:1.05rem;letter-spacing:.08em;
+  color:var(--ink);border:2px solid var(--rose);border-radius:3px;padding:6px 10px;line-height:1}
+
+footer{border-top:1px solid var(--hair);background:var(--well);padding-block:40px 48px;font-size:.92rem}
+footer .grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px}
+@media (max-width:780px){footer .grid{grid-template-columns:1fr;gap:28px}}
+footer p{margin:0 0 12px;max-width:66ch}
+footer .contact{display:flex;flex-direction:column;gap:6px}
+footer .small{color:#8f829d;font-size:.84rem;margin-top:20px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the game</a>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <!-- The fox mark, drawn from the same 14 points as scripts/ui/VulpMark.gd. -->
+      <svg class="mark" viewBox="0 0 758.6 1000" role="img" aria-label="Vulpalazzo fox mark">
+        <polygon fill="#f0d147" points="0,0 57.6,436.3 379.8,1000 701,436.3 758.6,0 480.6,322.3 445.2,461.8 666.7,210.4 621.3,435.2 379.8,871.5 137.3,435.2 91.9,210.4 313.4,461.8 278,322.3"/>
+      </svg>
+      <div class="label">A Bottega Systems game</div>
+      <h1>Vulpalazzo</h1>
+      <p class="lede">The slot machines are characters. Play slots, blackjack and craps in a
+      casino that remembers how you play, and climb a ten-tier loyalty card whose perks are
+      real and whose meaning is never printed on it. Anthro cast, adults only.</p>
+      <div class="row">
+        <span class="soon">Coming to Steam</span>
+        <a class="chip" href="https://bsky.app/profile/vulpalazzo.bsky.social" rel="me noopener">Bluesky</a>
+        <a class="chip" href="https://x.com/vulpalazzo" rel="me noopener">X</a>
+        <a class="chip" href="mailto:press@vulpalazzo.com">press@vulpalazzo.com</a>
+      </div>
+    </div>
+
+    <aside class="plate" aria-labelledby="rtp-what">
+      <div class="label">The real numbers</div>
+      <div class="figure">96.53%</div>
+      <div class="what" id="rtp-what">Return to player &middot; the floor's classic cabinet</div>
+      <p>Every machine's return-to-player rate is measured across four million simulated
+      spins by a test that runs on every build.</p>
+      <div class="verdict">Not a claim. A measurement.</div>
+    </aside>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+
+    <section class="two" aria-labelledby="h-machines">
+      <div><div class="label">The floor</div><h2 id="h-machines">The machines are people</h2></div>
+      <div class="copy">
+        <p>Every machine on the floor belongs to somebody. Ruby runs the Deluxe. The County
+        Fair cabinet came in off a truck. They have opinions about how you play, and they are
+        not shy about them.</p>
+        <p>You are not pulling a lever for money that does not exist. You are pulling it
+        because it is how she talks to you.</p>
+      </div>
+    </section>
+
+    <section class="two" aria-labelledby="h-file">
+      <div><div class="label">The card</div><h2 id="h-file">A casino that keeps a file on you</h2></div>
+      <div class="copy">
+        <p>The loyalty card has ten tiers and the perks are literal — valet, a room rate,
+        lounge access, a line you no longer wait in. It never tells you what it means. It does
+        not have to. Everyone in the building treats you differently once you have one.</p>
+      </div>
+    </section>
+
+    <section class="two" aria-labelledby="h-paid">
+      <div><div class="label">The deal</div><h2 id="h-paid">The house has already been paid</h2></div>
+      <div class="copy">
+        <p>You bought the game. That is the entire transaction. There is no second currency,
+        no energy timer, no ad break and nothing to buy again, ever.</p>
+        <p>Which is why we can do something no free-to-play slot can afford to: publish the
+        real numbers.</p>
+      </div>
+    </section>
+
+    <section class="two" aria-labelledby="h-repair">
+      <div><div class="label">Who made it</div><h2 id="h-repair">Made by someone who repairs these machines</h2></div>
+      <div class="note">
+        <p>There is a 1963 Bally Money Honey in my house. It was the first slot machine that
+        could pay you out without calling an attendant over, and it is the reason casino
+        floors look the way they do. There is another Bally that was my dad's. Four pinballs,
+        two of which work. Two cocktail cabinets and a pair of jukeboxes.</p>
+        <p>I am a repairman through and through. I love breathing life into something retired
+        or forgotten, that everyone else swore had outlived its purpose.</p>
+        <p>That is what this is. The cabinets are built as objects because that is what they
+        are. If it feels like somebody cared about the hardware, that is why.</p>
+        <div class="sign">— the developer</div>
+      </div>
+    </section>
+
+    <section class="two" aria-labelledby="h-do">
+      <div><div class="label">The game</div><h2 id="h-do">What you actually do</h2></div>
+      <ul class="play">
+        <li>Slots that are hand-built machines, not reskins — each with its own paytable,
+        bonus, jackpot ladder and personality</li>
+        <li>Blackjack at a real table, with real money at stake and no take-backs</li>
+        <li class="later">Craps, when the pit opens</li>
+        <li>A story told in beats, between hands, by people who work here</li>
+        <li>An entourage you assemble, who show up on the floor and have things to say</li>
+      </ul>
+    </section>
+
+    <!-- SCREENSHOTS: hidden until the Marquee's set lands
+         (2026-09-22-choose-3-5-screenshots-for-the-l). Add one <figure> per image with
+         real alt text, then remove the `hidden` attribute. Never an empty grid. -->
+    <section aria-labelledby="h-shots" hidden>
+      <div class="label">The room</div>
+      <h2 id="h-shots">On the floor</h2>
+      <div class="shots"></div>
+    </section>
+
+    <section aria-labelledby="h-adult">
+      <div class="adult">
+        <span class="badge" aria-hidden="true">18+</span>
+        <div>
+          <h2 id="h-adult" style="margin-top:0">Adults only</h2>
+          <div class="copy" style="margin-top:12px">
+            <p>An adult game for an adult audience. Explicit content is unlocked by playing,
+            never by paying, and it is skippable if it is not what you came for.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap grid">
+    <div>
+      <div class="label" style="margin-bottom:10px">How the art is made</div>
+      <p>Much of this game's 2D artwork is AI-assisted. Concepts and source images are
+      generated and then edited, composited, keyed and assembled by hand into the finished
+      assets you see.</p>
+      <p>Several things are not: all audio is produced with conventional tools — no
+      generative audio models are used anywhere in this project. A significant amount of
+      the art is drawn procedurally by code or modelled rather than prompted. There are
+      human visual contributions from a contract designer.</p>
+      <p>No generative AI runs at runtime. Nothing you do in the game is sent anywhere.</p>
+    </div>
+    <div class="contact">
+      <div class="label" style="margin-bottom:4px">Contact</div>
+      <span>Press: <a href="mailto:press@vulpalazzo.com">press@vulpalazzo.com</a></span>
+      <span>Everything else: <a href="mailto:hello@vulpalazzo.com">hello@vulpalazzo.com</a></span>
+      <span><a href="https://bsky.app/profile/vulpalazzo.bsky.social" rel="me noopener">Bluesky</a>
+        &nbsp;·&nbsp; <a href="https://x.com/vulpalazzo" rel="me noopener">X</a></span>
+      <p class="small">© 2026 Bottega Systems. This site sets no cookies and runs no tracking.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
