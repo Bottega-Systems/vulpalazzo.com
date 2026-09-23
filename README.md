@@ -33,8 +33,9 @@ It was approved on 2026-09-22 as a one-off, with bounds. They are the scope:
   `STEAM_PAGE.md`. **If the game's economy changes, this number changes, here and
   there, the same day.** A published figure that is no longer true is worse than
   no figure: the whole pitch is that the numbers are measured.
-- **The Bluesky links** point at `vulpalazzo.bsky.social`. **When the handle moves to
-  `@vulpalazzo.com`, update both links** (hero and footer).
+- **The Bluesky links** point at `@vulpalazzo.com` — the handle moved from
+  `vulpalazzo.bsky.social` on 2026-09-23, verified by the account's permanent id. If
+  the handle ever changes again, update both links (hero and footer).
 - **The AI disclosure** in the footer mirrors the Steam page's required disclosure.
   **It must stay true** — if the pipeline changes, it changes.
 
