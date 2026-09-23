@@ -3,7 +3,8 @@
 The landing page for **Vulpalazzo**, a game by Bottega Systems. One static page,
 served by GitHub Pages. No build step, no framework, no cookies, no tracking.
 
-**This repository is public, because it is a website.** It holds only what the
+**Treat this repository as public, whatever its setting says** — everything in it
+is served to the whole internet the moment it is deployed. It holds only what the
 page shows: approved copy, the fox mark, and screenshots the Marquee has signed
 off. **Nothing from the game's private repository goes here** — above all nothing
 from `assets/imagine_raw/`.
