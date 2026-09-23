@@ -43,7 +43,15 @@ It was approved on 2026-09-22 as a one-off, with bounds. They are the scope:
 The screenshots section is in `index.html` with the `hidden` attribute, and stays
 hidden until real ones exist — an empty grid is worse than none. When the Marquee's
 set lands: put the images in `shots/`, add one `<figure>` per image **with real alt
-text**, remove `hidden`, and add an `og:image` (1200×630) for link previews.
+text**, remove `hidden`.
+
+**The link-preview card is `og.png`** (1200×630): the fox mark, the wordmark and
+the approved hook line, drawn with the game's own Cinzel and Barlow files. A
+screenshot can replace it later; keep it 1200×630 and keep its `og:image:alt` true.
+
+**"Coming to Steam" is deliberately not a button** — it did nothing, so it no
+longer looks clickable. **The day the Steam page exists, it becomes the wishlist
+link** and gets the filled gold button back.
 
 ## Fonts
 

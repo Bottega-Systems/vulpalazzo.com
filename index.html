@@ -11,8 +11,11 @@
 <meta property="og:title" content="Vulpalazzo">
 <meta property="og:description" content="The slot machines are characters. Play slots, blackjack and craps in a casino that remembers how you play, and climb a ten-tier loyalty card whose perks are real and whose meaning is never printed on it. Anthro cast, adults only.">
 <meta property="og:url" content="https://vulpalazzo.com/">
-<!-- og:image goes here once the Marquee's screenshots land (1200x630). -->
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://vulpalazzo.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The gold Vulpalazzo fox mark beside the wordmark: A Bottega Systems game. The slot machines are characters. Coming to Steam.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@vulpalazzo">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <!-- Google Fonts sets no cookies. Self-host these (both are SIL OFL) if that ever matters. -->
@@ -73,8 +76,13 @@ h1{font-family:var(--display);font-weight:700;color:var(--ink);margin:12px 0 0;
 .lede{margin:22px 0 0;max-width:36ch;font-size:clamp(1.12rem,2.2vw,1.32rem);
   line-height:1.55;color:var(--ink)}
 .row{display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center;margin-top:32px}
-.soon{font-family:var(--label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  font-size:.92rem;color:var(--void);background:var(--gold);padding:10px 18px;border-radius:2px}
+/* A status, not a button: nothing to click until the Steam page exists. When it
+   does, this becomes the wishlist link and earns the filled-button treatment. */
+.soon{font-family:var(--label);font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  font-size:.95rem;color:var(--gold);display:inline-flex;align-items:center;gap:10px;
+  padding-right:10px}
+.soon::before{content:"";width:8px;height:8px;background:var(--gold);transform:rotate(45deg);
+  box-shadow:0 0 10px rgba(240,209,71,.6)}
 .chip{font-family:var(--label);font-weight:500;letter-spacing:.08em;font-size:.98rem;
   color:var(--ink);text-decoration:none;padding:9px 16px;border:1px solid var(--hair);
   border-radius:2px;background:rgba(36,20,54,.55)}
