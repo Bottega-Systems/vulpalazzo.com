@@ -21,7 +21,7 @@ It was approved on 2026-09-22 as a one-off, with bounds. They are the scope:
   box address for the footer, and unsubscribe handling. The form is the front
   door of that plan, so it arrives with it.
 - **No trailer** until one exists.
-- **Safe for work.** Adults-only is stated in words, never shown.
+- **Safe for work.** The rating (Mature: suggestive, never explicit) is stated in words, never shown. *(Was "adults only" until 2026-09-25, when the copy caught up with the 2026-09-14 Mature decision.)*
 - The game's accessibility rules apply: colour is never the only signal, every
   image has alt text, text stays readable.
 
