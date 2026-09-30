@@ -62,11 +62,10 @@ strong,b{color:var(--ink);font-weight:600}
 .hero-shot img{display:block;width:100%;height:auto;border:1px solid var(--hair);background:var(--well)}
 .hero-shot figcaption,.gallery figcaption{font-size:.86rem;color:var(--ink-dim);margin-top:8px}
 .fiction{font-size:.98rem;color:var(--ink);margin-top:14px}
-.parts{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:14px;margin-top:22px;align-items:start}
+.parts{margin-top:22px}
 .parts .strips{display:grid;gap:14px}
 .parts img{display:block;width:100%;height:auto;border:1px solid var(--hair);background:var(--well)}
 .parts figure{margin:0}
-@media (max-width:720px){.parts{grid-template-columns:minmax(0,1fr)}.parts .ladder img{max-width:150px}}
 .rtp{margin-top:22px;max-width:520px}
 .gallery img{display:block;width:100%;height:auto;aspect-ratio:8/3;object-fit:cover;border:1px solid var(--hair);background:var(--well)}
 .gallery figure.wide{grid-column:1/-1}
@@ -248,8 +247,6 @@ footer .small{color:#8f829d;font-size:.84rem;margin-top:20px}
             alt="The same cabinet rendered in Blender with its reels and displays empty, standing between two other machines on a dark carpeted floor, lit from above."></figure>
           <figcaption>The cabinet as it comes out of Blender, before the game draws its reels and displays onto it.</figcaption>
         </div>
-        <figure class="ladder"><img src="img/classic_ladder.jpg" width="198" height="488" loading="lazy"
-          alt="Close-up of the jackpot ladder: five stacked teal dot-matrix meters reading MINI 191, MINOR 475, MAJOR 2,125, MAXI 6,375 and GRAND 21,255."></figure>
       </div>
       <aside class="plate rtp" aria-labelledby="rtp-what">
         <div class="label">The real numbers</div>
