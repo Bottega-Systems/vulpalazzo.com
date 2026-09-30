@@ -58,6 +58,15 @@ strong,b{color:var(--ink);font-weight:600}
 /* the gallery: the renders are 8:3, the shape of the game's plates */
 .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
 .gallery figure{margin:0}
+.hero-shot{margin:0;align-self:center}
+.hero-shot img{display:block;width:100%;height:auto;border:1px solid var(--hair);background:var(--well)}
+.hero-shot figcaption,.gallery figcaption{font-size:.86rem;color:var(--ink-dim);margin-top:8px}
+.fiction{font-size:.98rem;color:var(--ink);margin-top:14px}
+.parts{margin-top:22px}
+.parts .strips{display:grid;gap:14px}
+.parts img{display:block;width:100%;height:auto;border:1px solid var(--hair);background:var(--well)}
+.parts figure{margin:0}
+.rtp{margin-top:22px;max-width:520px}
 .gallery img{display:block;width:100%;height:auto;aspect-ratio:8/3;object-fit:cover;border:1px solid var(--hair);background:var(--well)}
 .gallery figure.wide{grid-column:1/-1}
 .gallery-note{font-size:.92rem;color:var(--ink-dim);margin-top:14px}
@@ -165,6 +174,7 @@ footer .small{color:#8f829d;font-size:.84rem;margin-top:20px}
       <p class="lede">The slot machines are characters. Play slots, blackjack and craps in a
       casino that remembers how you play, and climb a ten-tier loyalty card whose perks are
       real and whose meaning is never printed on it. Anthro cast, made for grown-ups.</p>
+      <p class="fiction">The gambling is simulated, with a fictional currency you can't buy or cash out.</p>
       <div class="row">
         <span class="soon">Coming to Steam</span>
         <a class="chip" href="https://bsky.app/profile/vulpalazzo.com" rel="me noopener">Bluesky</a>
@@ -173,76 +183,19 @@ footer .small{color:#8f829d;font-size:.84rem;margin-top:20px}
       </div>
     </div>
 
-    <aside class="plate" aria-labelledby="rtp-what">
-      <div class="label">The real numbers</div>
-      <div class="figure">96.53%</div>
-      <div class="what" id="rtp-what">Return to player &middot; the floor's classic cabinet</div>
-      <p>Every machine's return-to-player rate is measured across four million simulated
-      spins by a test that runs on every build.</p>
-      <div class="verdict">Not a claim. A measurement.</div>
-    </aside>
+      <!-- The hero leads with the game, not a number (the Owner, 2026-09-30: leading with
+           the RTP made a friend think this was a real-money casino). Placeholder reel art on
+           this frame from the 2026-09-28 playtest; swapped when new screenshots land. -->
+      <figure class="hero-shot">
+        <img src="img/classic_floor.jpg" width="1600" height="1089"
+          alt="A three-reel slot machine in 3D on a casino floor. Glowing teal dot-matrix displays show the credits, bet and win, a column of jackpot meters climbs its left side, and a row of chunky lit buttons, a yellow SPIN among them, runs along its deck. A small capybara in a top hat sits on the ledge.">
+        <figcaption>Classic, on the floor. Work in progress, modelled with AI tools; its reel art is being replaced.</figcaption>
+      </figure>
   </div>
 </header>
 
 <main id="main">
   <div class="wrap">
-
-    <section class="two" aria-labelledby="h-machines">
-      <div><div class="label">The floor</div><h2 id="h-machines">The machines are people</h2></div>
-      <div class="copy">
-        <p>Every machine on the floor belongs to somebody. Ruby runs the Deluxe. The County
-        Fair cabinet came in off a truck. They have opinions about how you play, and they are
-        not shy about them.</p>
-        <p>You are not pulling a lever for money that does not exist. You are pulling it
-        because it is how she talks to you.</p>
-      </div>
-    </section>
-
-    <section class="two" aria-labelledby="h-file">
-      <div><div class="label">The card</div><h2 id="h-file">A casino that keeps a file on you</h2></div>
-      <div class="copy">
-        <p>The loyalty card has ten tiers and the perks are literal — valet, a room rate,
-        lounge access, a line you no longer wait in. It never tells you what it means. It does
-        not have to. Everyone in the building treats you differently once you have one.</p>
-      </div>
-    </section>
-
-    <section class="two" aria-labelledby="h-paid">
-      <div><div class="label">The deal</div><h2 id="h-paid">The house has already been paid</h2></div>
-      <div class="copy">
-        <p>You bought the game. That is the entire transaction. There is no second currency,
-        no energy timer, no ad break and nothing to buy again, ever.</p>
-        <p>Which is why we can do something no free-to-play slot can afford to: publish the
-        real numbers.</p>
-      </div>
-    </section>
-
-    <section class="two" aria-labelledby="h-repair">
-      <div><div class="label">Who made it</div><h2 id="h-repair">Made by someone who repairs these machines</h2></div>
-      <div class="note">
-        <p>There is a 1963 Bally Money Honey in my house. It was the first slot machine that
-        could pay you out without calling an attendant over, and it is the reason casino
-        floors look the way they do. There is another Bally that was my dad's. Four pinballs,
-        two of which work. Two cocktail cabinets and a pair of jukeboxes.</p>
-        <p>I am a repairman through and through. I love breathing life into something retired
-        or forgotten, that everyone else swore had outlived its purpose.</p>
-        <p>That is what this is. The cabinets are built as objects because that is what they
-        are. If it feels like somebody cared about the hardware, that is why.</p>
-        <div class="sign">— the developer</div>
-      </div>
-    </section>
-
-    <section class="two" aria-labelledby="h-do">
-      <div><div class="label">The game</div><h2 id="h-do">What you actually do</h2></div>
-      <ul class="play">
-        <li>Slots that are hand-built machines, not reskins — each with its own paytable,
-        bonus, jackpot ladder and personality</li>
-        <li>Blackjack at a real table, with real money at stake and no take-backs</li>
-        <li class="later">Craps, when the pit opens</li>
-        <li>A story told in beats, between hands, by people who work here</li>
-        <li>An entourage you assemble, who show up on the floor and have things to say</li>
-      </ul>
-    </section>
 
     <!-- THE DUN: the four lab renders the Owner posted to Bluesky and X on 2026-09-29
          (the game repo's docs/social/queue/2026-09-29-bluesky-brindle-flats-lab.md), with
@@ -271,6 +224,97 @@ footer .small{color:#8f829d;font-size:.84rem;margin-top:20px}
       generation. Elevation data available from the U.S. Geological Survey, National
       Geospatial Program.</p>
     </section>
+
+    <!-- THE CABINET: the diegetic interface, and the real numbers inside it (the Owner,
+         2026-09-30). The RTP is Classic's `documented_rtp` in the game repo's
+         data/machines/floor_classic.json (0.9646 on 2026-09-30), measured by rtp_sim at
+         N = 400,000, which CI re-runs weekly (Mondays). Re-read all three before editing. -->
+    <section aria-labelledby="h-cabinet">
+      <div class="label">The cabinet</div>
+      <h2 id="h-cabinet">The machine is the interface</h2>
+      <div class="copy">
+        <p>Almost nothing floats over the game. The credits, the bet and the win are on the
+        machine's own display, and the jackpot ladder climbs the side of the cabinet. Every
+        button, lens and lamp is modelled and lit in 3D, the way a real cabinet is built.</p>
+      </div>
+      <div class="parts">
+        <div class="strips">
+          <figure><img src="img/classic_meters.jpg" width="1067" height="124" loading="lazy"
+            alt="Close-up of the machine's teal dot-matrix display: CREDITS 3,086, a small grid icon, WON 50 x1, BET 25 and WIN 50, each in its own framed window."></figure>
+          <figure><img src="img/classic_deck.jpg" width="1056" height="107" loading="lazy"
+            alt="Close-up of the button deck: BET minus, BET plus, AUTO 20, FAST and HELP in white, a bright yellow SPIN, and an orange CASH OUT."></figure>
+          <figure><img src="img/classic_blender.jpg" width="1600" height="600" loading="lazy"
+            alt="The same cabinet rendered in Blender with its reels and displays empty, standing between two other machines on a dark carpeted floor, lit from above."></figure>
+          <figcaption>The cabinet as it comes out of Blender, before the game draws its reels and displays onto it.</figcaption>
+        </div>
+      </div>
+      <aside class="plate rtp" aria-labelledby="rtp-what">
+        <div class="label">The real numbers</div>
+        <div class="figure">96.46%</div>
+        <div class="what" id="rtp-what">Return to player &middot; Classic, at the default bet</div>
+        <p>Re-measured every week by a test across 400,000 simulated spins, in a currency you
+        can't buy or cash out.</p>
+        <div class="verdict">Not a claim. A measurement.</div>
+      </aside>
+    </section>
+
+    <section class="two" aria-labelledby="h-machines">
+      <div><div class="label">The floor</div><h2 id="h-machines">The machines are people</h2></div>
+      <div class="copy">
+        <p>Every machine on the floor belongs to somebody. Ruby runs the Deluxe. The County
+        Fair cabinet came in off a truck. They have opinions about how you play, and they are
+        not shy about them.</p>
+        <p>You are not pulling a lever for money that does not exist. You are pulling it
+        because it is how she talks to you.</p>
+      </div>
+    </section>
+
+    <section class="two" aria-labelledby="h-file">
+      <div><div class="label">The card</div><h2 id="h-file">A casino that keeps a file on you</h2></div>
+      <div class="copy">
+        <p>The loyalty card has ten tiers and the perks are literal — valet, a room rate,
+        lounge access, a line you no longer wait in. It never tells you what it means. It does
+        not have to. Everyone in the building treats you differently once you have one.</p>
+      </div>
+    </section>
+
+    <section class="two" aria-labelledby="h-paid">
+      <div><div class="label">The deal</div><h2 id="h-paid">The house has already been paid</h2></div>
+      <div class="copy">
+        <p>You bought the game. That is the entire transaction. There is no second currency,
+        no energy timer, no ad break and nothing to buy again, ever.</p>
+        <p>Which is why we can do something no free-to-play slot can afford to: publish the
+        real numbers, like the one above.</p>
+      </div>
+    </section>
+
+    <section class="two" aria-labelledby="h-repair">
+      <div><div class="label">Who made it</div><h2 id="h-repair">Made by someone who repairs these machines</h2></div>
+      <div class="note">
+        <p>There is a 1963 Bally Money Honey in my house. It was the first slot machine that
+        could pay you out without calling an attendant over, and it is the reason casino
+        floors look the way they do. There is another Bally that was my dad's. Four pinballs,
+        two of which work. Two cocktail cabinets and a pair of jukeboxes.</p>
+        <p>I am a repairman through and through. I love breathing life into something retired
+        or forgotten, that everyone else swore had outlived its purpose.</p>
+        <p>That is what this is. The cabinets are built as objects because that is what they
+        are. If it feels like somebody cared about the hardware, that is why.</p>
+        <div class="sign">— the developer</div>
+      </div>
+    </section>
+
+    <section class="two" aria-labelledby="h-do">
+      <div><div class="label">The game</div><h2 id="h-do">What you actually do</h2></div>
+      <ul class="play">
+        <li>Slots that are hand-built machines, not reskins — each with its own paytable,
+        bonus, jackpot ladder and personality</li>
+        <li>Blackjack at a real table, with your bankroll at stake and no take-backs</li>
+        <li class="later">Craps, when the pit opens</li>
+        <li>A story told in beats, between hands, by people who work here</li>
+        <li>An entourage you assemble, who show up on the floor and have things to say</li>
+      </ul>
+    </section>
+
 
     <!-- SCREENSHOTS: hidden until the Marquee's set lands
          (2026-09-22-choose-3-5-screenshots-for-the-l). Add one <figure> per image with
