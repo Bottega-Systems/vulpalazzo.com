@@ -14,9 +14,17 @@ from `assets/imagine_raw/`.
 It was approved on 2026-09-22 as a one-off, with bounds. They are the scope:
 
 - **One static page.** No CMS, blog, accounts, e-commerce or tracking.
-- **The copy is the store page's, word for word** — `docs/STEAM_PAGE.md` in the
-  game's repository. **Change it there first, then here.** Nothing on this page is
-  written fresh, so nothing here needs a second review.
+- **Live on this page means approved** *(the Owner, 2026-09-30; this replaced "the copy
+  is the store page's, word for word")*. The page is the company's source of what its
+  customers should know. **The Barker drafts posts from what's live here**, so every post
+  starts from signed-off copy, and months later the same material comes back with new
+  screenshots and new wording. It never gives away story secrets. The Steam page's copy
+  (`docs/STEAM_PAGE.md` in the game's repository) is kept consistent with it.
+- **Every change is previewed privately first.** Before a pull request, the page is
+  published as a private Claude page (the preview:
+  https://claude.ai/artifact/GKGumjEkmu6a2vjXXTtdhA). The Owner looks at it on his phone
+  and shares it with friends by link. Only what he likes becomes a pull request, and
+  **merging it publishes it.** Nothing public is ever used as a scratchpad.
 - **No email signup form** until the company has a marketing email service, a PO
   box address for the footer, and unsubscribe handling. The form is the front
   door of that plan, so it arrives with it.
@@ -29,10 +37,13 @@ It was approved on 2026-09-22 as a one-off, with bounds. They are the scope:
 
 ## Three things on the page that can go stale
 
-- **`96.53%`** — the classic cabinet's measured return to player, from
-  `STEAM_PAGE.md`. **If the game's economy changes, this number changes, here and
-  there, the same day.** A published figure that is no longer true is worse than
-  no figure: the whole pitch is that the numbers are measured.
+- **`96.46%`**: Classic's return to player at the default bet, `documented_rtp` in the
+  game repo's `data/machines/floor_classic.json`, measured by `rtp_sim` over 400,000
+  spins; CI re-runs it **weekly** (it was nightly until 2026-09-26). **If the maths moves,
+  this number and that sentence change, here and in `STEAM_PAGE.md`, the same day.** A
+  published figure that is no longer true is worse than no figure: the whole pitch is
+  that the numbers are measured. *(It said 96.53%, four million spins and "every build"
+  until 2026-09-30, three errors the Barker had already fixed on the Steam page.)*
 - **The Bluesky links** point at `@vulpalazzo.com` — the handle moved from
   `vulpalazzo.bsky.social` on 2026-09-23, verified by the account's permanent id. If
   the handle ever changes again, update both links (hero and footer).
