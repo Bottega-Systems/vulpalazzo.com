@@ -69,6 +69,8 @@ strong,b{color:var(--ink);font-weight:600}
 .rtp{margin-top:22px;max-width:520px}
 .gallery img{display:block;width:100%;height:auto;aspect-ratio:8/3;object-fit:cover;border:1px solid var(--hair);background:var(--well)}
 .gallery figure.wide{grid-column:1/-1}
+.gallery.sixteen img{aspect-ratio:16/9}
+.gallery.sixteen img.r83{aspect-ratio:8/3}
 .gallery-note{font-size:.92rem;color:var(--ink-dim);margin-top:14px}
 @media (max-width:720px){.gallery{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:520px){.wrap{padding-inline:18px}}
@@ -223,6 +225,33 @@ footer .small{color:#8f829d;font-size:.84rem;margin-top:20px}
       <p class="gallery-note">Lab blockout on real USGS terrain, modelled with AI tools. No image
       generation. Elevation data available from the U.S. Geological Survey, National
       Geospatial Program.</p>
+    </section>
+
+    <!-- THE VULP, INSIDE: four renders from the lab's 3D floor (2026-10-01, the lighting
+         pass), picked by the Owner the same day. Modelled with AI tools and not yet given
+         the human pass, so the note says so (BARKER.md rule 3). The overhead view is from
+         the first pass, with stand-in cabinets. The machines' screens show the game's
+         current symbol art, so this note never claims "no image generation". -->
+    <section aria-labelledby="h-inside">
+      <div class="label">The Vulp, inside</div>
+      <h2 id="h-inside">One floor, built once</h2>
+      <div class="copy">
+        <p>We built the casino floor once, in 3D, and every scene in the game is a camera on
+        it. Slots sit in warm pools of light, every table is lit from both ends, and each part
+        of the floor has its own family of chandeliers.</p>
+      </div>
+      <div class="gallery sixteen">
+        <figure class="wide"><img src="img/vulp_bar.jpg" width="1600" height="900" loading="lazy"
+          alt="A round bar at the centre of a casino floor, its back bar lined with lit bottles, wrapped around a tall column of crossing brass ribs that rises into a dark ceiling. Red-topped stools ring the counter, the polished floor reflects the lights, and banks of slot machines glow beyond."></figure>
+        <figure><img src="img/vulp_promenade.jpg" width="1600" height="900" loading="lazy"
+          alt="A wide polished walkway through the casino under a gold-lit ceiling, with a candle chandelier overhead. A long row of slot machines with red stools runs down the left, and the round bar glows on the right behind a planter."></figure>
+        <figure><img src="img/vulp_big_six.jpg" width="1600" height="900" loading="lazy"
+          alt="A tall money wheel on a wooden post, ringed with marquee bulbs, standing at the corner of the table games. A red glass chandelier hangs at left, a craps table sits in the shadows, and slot machines line the far wall."></figure>
+        <figure class="wide"><img class="r83" src="img/vulp_floor.jpg" width="1600" height="600" loading="lazy"
+          alt="The whole casino floor seen from above with the roof off: the brass-ribbed column and round bar at the centre, slot banks set at angles in every direction, table games at right, and walkways lit by pools of light."></figure>
+      </div>
+      <p class="gallery-note">Work in progress: modelled in 3D with AI tools, before its human
+      pass. The view from above is an earlier render, with stand-in cabinets.</p>
     </section>
 
     <!-- THE CABINET: the diegetic interface, and the real numbers inside it (the Owner,
